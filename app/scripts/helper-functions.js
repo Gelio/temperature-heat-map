@@ -1,3 +1,8 @@
+module.exports = {
+    yearsToDate: yearsToDate,
+    monthsToDate: monthsToDate
+};
+
 function yearsToDate(d) {
     return new Date(d.year);
 }
