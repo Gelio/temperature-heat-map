@@ -12,10 +12,11 @@
     function init() {
         console.log('Initiating chart');
 
-        scalesAxes.initScales.call(this);
         this.chart = d3.select('.chart');
         this.innerChart = this.chart.append('g')
             .attr('transform', 'translate(' + config.margin.left + ', ' + config.margin.top + ')');
+
+        scalesAxes.initScales.call(this);
     }
 
     function drawData(data) {
@@ -23,7 +24,17 @@
 
         this.baseTemp = data.baseTemperature;
         this.data = data.monthlyVariance;
+
         scalesAxes.setScalesDomain.call(this);
         scalesAxes.initAxes.call(this);
+
+        var groups = this.innerChart.selectAll('g')
+            .data(this.data)
+            .enter().append('g')
+            .attr('transform', helper.getTranslation.bind(this));
+
+        groups.append('rect')
+            .attr('height', 4)
+            .attr('width', 4);
     }
 })();

@@ -26,6 +26,8 @@ function setScalesDomain() {
 
     // Hardcore months 1 through 12
     this.y.domain([1, 12]);
+
+    console.log(this.x.domain(), this.y.domain());
 }
 
 function initAxes() {
