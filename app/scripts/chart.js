@@ -12,7 +12,9 @@
     function init() {
         console.log('Initiating chart');
 
-        this.chart = d3.select('.chart');
+        this.chart = d3.select('.chart')
+            .attr('width', config.width)
+            .attr('height', config.height);
         this.innerChart = this.chart.append('g')
             .attr('transform', 'translate(' + config.margin.left + ', ' + config.margin.top + ')');
 
@@ -34,7 +36,12 @@
             .attr('transform', helper.getTranslation.bind(this));
 
         groups.append('rect')
-            .attr('height', 4)
-            .attr('width', 4);
+            .attr('height', config.innerHeight/12)
+            .attr('width', config.innerWidth/this.data.length)
+            .attr('fill', function(d) {
+                return this.colorScale(this.baseTemp + d.variance);
+            }.bind(this));
+
+        scalesAxes.callAxes.call(this);
     }
 })();

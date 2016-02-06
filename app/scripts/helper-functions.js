@@ -1,7 +1,12 @@
+var config = require('./config.js');
+
 module.exports = {
     yearsToDate: yearsToDate,
     monthsToDate: monthsToDate,
-    getTranslation: getTranslation
+    getTranslation: getTranslation,
+    getYear: getYear,
+    getMonth: getMonth,
+    getTemperature: getTemperature
 };
 
 function yearsToDate(d) {
@@ -13,5 +18,19 @@ function monthsToDate(d) {
 }
 
 function getTranslation(d) {
-    return 'translate(' + this.x(yearsToDate(d)) + ', ' + this.y(monthsToDate(d)) + ')';
+    return 'translate(' + this.x(d.year) + ', ' + (this.y(d.month) - config.translateBarsUp)  + ')';
+}
+
+function getYear(d) {
+    return d.year;
+}
+
+function getMonth(d) {
+    return d.month;
+}
+
+function getTemperature(baseTemperature) {
+    return function(d) {
+        return baseTemperature + d.variance;
+    }
 }
