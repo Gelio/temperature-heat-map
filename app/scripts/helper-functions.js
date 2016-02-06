@@ -18,7 +18,7 @@ function monthsToDate(d) {
 }
 
 function getTranslation(d) {
-    return 'translate(' + this.x(d.year) + ', ' + (this.y(d.month) - config.translateBarsUp)  + ')';
+    return 'translate(' + this.x(d.year) + ', ' + this.y(d.month)  + ')';
 }
 
 function getYear(d) {
