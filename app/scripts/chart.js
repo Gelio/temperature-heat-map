@@ -39,7 +39,7 @@
             .attr('height', this.y.rangeBand())
             .attr('width', this.x.rangeBand())
             .attr('fill', function(d) {
-                return this.colorScale(this.baseTemp + d.variance);
+                return this.colorScale(this.tempToFraction(this.baseTemp + d.variance));
             }.bind(this));
 
         scalesAxes.callAxes.call(this);
