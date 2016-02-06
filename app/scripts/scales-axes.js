@@ -19,7 +19,7 @@ function initScales() {
         .rangeRoundBands([0, config.innerHeight]);
 
     this.colorScale = d3.scale.linear()
-        .range(['blue', 'red'])
+        .range(config.colors)
 }
 
 function setScalesDomain() {
@@ -35,19 +35,17 @@ function setScalesDomain() {
         d3.min(this.data, helper.getTemperature(this.baseTemp)),
         d3.max(this.data, helper.getTemperature(this.baseTemp))
     ]);
-
-    console.log(this.x.domain(), this.y.domain());
 }
 
 function initAxes() {
     this.xAxis = d3.svg.axis()
         .scale(this.x)
-        .orient('bottom');
+        .orient('bottom')
+        .tickValues(this.x.domain().filter(function(v, i) { return i%config.xScaleYearsInterval == 0; }));
 
     this.yAxis = d3.svg.axis()
         .scale(this.y)
-        .orient('left')
-        .ticks(80);
+        .orient('left');
 }
 
 function callAxes() {

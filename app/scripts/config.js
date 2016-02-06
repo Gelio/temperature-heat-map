@@ -6,7 +6,12 @@ var config = {
         right: 50,
         bottom: 100,
         left: 50
-    }
+    },
+    xScaleYearsInterval: 25,
+    colors: [
+        'blue',
+        'orange'
+    ]
 };
 
 module.exports = config;
