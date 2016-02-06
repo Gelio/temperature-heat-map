@@ -35,17 +35,10 @@ function setScalesDomain() {
     // Hardcore months 1 through 12
     this.y.domain(d3.range(1, 13));
 
-    /*this.colorScale.domain(d3.range(
-        d3.min(this.data, helper.getTemperature(this.baseTemp)),
-        d3.max(this.data, helper.getTemperature(this.baseTemp))
-    ));*/
-
     this.tempToFraction.domain([
         d3.min(this.data, helper.getTemperature(this.baseTemp)),
         d3.max(this.data, helper.getTemperature(this.baseTemp))
     ]);
-
-    console.log(this.tempToFraction.domain(), this.colorScale.domain());
 }
 
 function initAxes() {

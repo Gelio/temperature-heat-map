@@ -11,8 +11,6 @@ function bindTooltip(groups) {
 }
 
 function displayTooltip(d) {
-    console.log('Display', d);
-    console.log(d3.event.pageX, d3.event.pageY);
     d3.select('.chart-tooltip')
         .classed('visible', true)
         .style('left', d3.event.clientX + config.tooltipOffset.left + 'px')
@@ -20,7 +18,7 @@ function displayTooltip(d) {
         .html('<h3>' + d.year + '</h3>' + (this.baseTemp + d.variance).toFixed(2) + ' &deg;C');
 }
 
-function hideTooltip(d) {
+function hideTooltip() {
     d3.select('.chart-tooltip')
         .classed('visible', false);
 }

@@ -11,8 +11,6 @@
     };
 
     function init() {
-        console.log('Initiating chart');
-
         this.chart = d3.select('.chart')
             .attr('width', config.width)
             .attr('height', config.height);
@@ -23,8 +21,6 @@
     }
 
     function drawData(data) {
-        console.log('Drawing', data);
-
         this.baseTemp = data.baseTemperature;
         this.data = data.monthlyVariance;
 
