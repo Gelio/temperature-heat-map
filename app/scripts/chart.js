@@ -36,7 +36,7 @@
             .attr('transform', helper.getTranslation.bind(this));
 
         groups.append('rect')
-            .attr('height', config.innerHeight/12)
+            .attr('height', this.y.rangeBand())
             .attr('width', this.x.rangeBand())
             .attr('fill', function(d) {
                 return this.colorScale(this.baseTemp + d.variance);
