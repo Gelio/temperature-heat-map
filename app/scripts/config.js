@@ -8,10 +8,7 @@ var config = {
         left: 50
     },
     xScaleYearsInterval: 25,
-    colors: [
-        'blue',
-        'orange'
-    ]
+    colors: ['#5254a3', '#9c9ede', '#e7cb94', 'yellow', 'red']
 };
 
 module.exports = config;

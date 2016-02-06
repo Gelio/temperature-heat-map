@@ -18,8 +18,8 @@ function initScales() {
     this.y = d3.scale.ordinal()
         .rangeRoundBands([0, config.innerHeight]);
 
-    this.colorScale = d3.scale.linear()
-        .range(config.colors)
+    this.colorScale = d3.scale.ordinal()
+        .range(config.colors);
 }
 
 function setScalesDomain() {
@@ -31,10 +31,10 @@ function setScalesDomain() {
     // Hardcore months 1 through 12
     this.y.domain(d3.range(1, 13));
 
-    this.colorScale.domain([
+    this.colorScale.domain(d3.range(
         d3.min(this.data, helper.getTemperature(this.baseTemp)),
         d3.max(this.data, helper.getTemperature(this.baseTemp))
-    ]);
+    ));
 }
 
 function initAxes() {
