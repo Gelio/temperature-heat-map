@@ -2,7 +2,8 @@
     var d3 = require('d3'),
         config = require('./config.js'),
         scalesAxes = require('./scales-axes.js'),
-        helper = require('./helper-functions.js');
+        helper = require('./helper-functions.js'),
+        tooltip = require('./tooltip.js');
 
     module.exports = {
         init: init,
@@ -29,7 +30,11 @@
 
         scalesAxes.setScalesDomain.call(this);
         scalesAxes.initAxes.call(this);
+        drawRectangles.call(this);
+        scalesAxes.callAxes.call(this);
+    }
 
+    function drawRectangles() {
         var groups = this.innerChart.selectAll('g')
             .data(this.data)
             .enter().append('g')
@@ -42,6 +47,6 @@
                 return this.colorScale(this.tempToFraction(this.baseTemp + d.variance));
             }.bind(this));
 
-        scalesAxes.callAxes.call(this);
+        tooltip.bindTooltip.call(this, groups);
     }
 })();

@@ -8,7 +8,11 @@ var config = {
         left: 50
     },
     xScaleYearsInterval: 25,
-    colors: ['blue', 'lightblue', 'yellow', 'red']
+    colors: ['blue', 'lightblue', 'yellow', 'red'],
+    tooltipOffset: {
+        top: 10,
+        left: 10
+    }
 };
 
 module.exports = config;
