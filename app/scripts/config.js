@@ -1,10 +1,10 @@
 var config = {
     width: 900,
-    height: 600,
+    height: 500,
     margin: {
-        top: 50,
+        top: 0,
         right: 50,
-        bottom: 100,
+        bottom: 50,
         left: 50
     },
     xScaleYearsInterval: 25,
